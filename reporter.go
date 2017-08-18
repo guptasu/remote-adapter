@@ -22,7 +22,7 @@ var _ logentry.HandlerBuilder = builder{}
 var _ logentry.Handler = handler{}
 
 func (builder) Build(m proto.Message, env adapter.Env) (adapter.Handler, error) {
-	return handler{env.Logger}, nil
+	return handler{env.Logger()}, nil
 }
 
 func (builder) ConfigureLogEntryHandler(map[string]*logentry.Type) error {
