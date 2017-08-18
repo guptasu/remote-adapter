@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package config;
+
+option go_package="config";
+
+import "google/protobuf/descriptor.proto";
+
+message Params {
+
+}
