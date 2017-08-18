@@ -8,9 +8,9 @@ gogoslick_proto_library(
         "google/protobuf/descriptor.proto": "github.com/gogo/protobuf/proto",
     },
     imports = [
-        "external/com_github_gogo_protobuf",
-        "external/com_github_google_protobuf/src",
-        "external/com_github_googleapis_googleapis/",
+        "../../external/com_github_gogo_protobuf",
+        "../../external/com_github_google_protobuf/src",
+        "../../external/com_github_googleapis_googleapis/",
     ],
     inputs = [
         "@com_github_google_protobuf//:well_known_protos",
