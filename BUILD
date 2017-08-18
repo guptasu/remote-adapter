@@ -12,7 +12,7 @@ go_library(
     data = ["@com_github_google_protobuf//:well_known_protos"],
     deps = [
         "//config:go_default_library",
-        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@com_github_golang_protobuf//proto:go_default_library",
         "@com_github_istio_api//:mixer/v1",  # keep
         "@com_github_istio_api//:mixer/v1/config/descriptor",  # keep        
         "@com_github_istio_mixer//pkg/adapter:go_default_library",

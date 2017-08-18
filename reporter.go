@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/douglas-reid/mixer-noop-reporter/config"
-	"github.com/gogo/protobuf/proto"
+	"github.com/golang/protobuf/proto"
 
 	_ "istio.io/api/mixer/v1"
 	"istio.io/mixer/pkg/adapter"
