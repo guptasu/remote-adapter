@@ -39,7 +39,8 @@ func (instance) Close() error { return nil }
 // GetInfo returns the BuilderInfo associated with this adapter implementation.
 func GetInfo() handler.Info {
 	return handler.Info{
-		Name:        "github.com/douglas-reid/mixer-noop-reporter",
+		Name:        "mixer-noop-reporter",
+		Impl:        "github.com/douglas-reid/mixer-noop-reporter",
 		Description: "Does nothing (useful for testing)",
 		SupportedTemplates: []string{
 			logentry.TemplateName,
