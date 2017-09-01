@@ -16,6 +16,7 @@ go_library(
         "@com_github_istio_api//:mixer/v1",  # keep
         "@com_github_istio_api//:mixer/v1/config/descriptor",  # keep        
         "@com_github_istio_mixer//pkg/adapter:go_default_library",
+        "@com_github_istio_mixer//pkg/handler:go_default_library",
         "@com_github_istio_mixer//template/logentry:go_default_library",
     ],
 )

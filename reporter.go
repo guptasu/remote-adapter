@@ -8,37 +8,38 @@ import (
 
 	_ "istio.io/api/mixer/v1"
 	"istio.io/mixer/pkg/adapter"
+	"istio.io/mixer/pkg/handler"
 	"istio.io/mixer/template/logentry"
 )
 
 type (
-	builder struct{}
-	handler struct {
+	builder  struct{}
+	instance struct {
 		logger adapter.Logger
 	}
 )
 
 var _ logentry.HandlerBuilder = builder{}
-var _ logentry.Handler = handler{}
+var _ logentry.Handler = instance{}
 
 func (builder) Build(c adapter.Config, env adapter.Env) (adapter.Handler, error) {
-	return handler{env.Logger()}, nil
+	return instance{env.Logger()}, nil
 }
 
 func (builder) ConfigureLogEntryHandler(map[string]*logentry.Type) error {
 	return nil
 }
 
-func (h handler) HandleLogEntry(context.Context, []*logentry.Instance) error {
+func (h instance) HandleLogEntry(context.Context, []*logentry.Instance) error {
 	h.logger.Warningf("douglas-reid handler in action!")
 	return nil
 }
 
-func (handler) Close() error { return nil }
+func (instance) Close() error { return nil }
 
-// GetBuilderInfo returns the BuilderInfo associated with this adapter implementation.
-func GetBuilderInfo() adapter.BuilderInfo {
-	return adapter.BuilderInfo{
+// GetInfo returns the BuilderInfo associated with this adapter implementation.
+func GetInfo() handler.Info {
+	return handler.Info{
 		Name:        "github.com/douglas-reid/mixer-noop-reporter",
 		Description: "Does nothing (useful for testing)",
 		SupportedTemplates: []string{
