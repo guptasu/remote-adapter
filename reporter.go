@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/douglas-reid/mixer-noop-reporter/config"
-	"github.com/golang/protobuf/proto"
 
 	_ "istio.io/api/mixer/v1"
 	"istio.io/mixer/pkg/adapter"
@@ -47,6 +46,6 @@ func GetInfo() handler.Info {
 		},
 		CreateHandlerBuilder: func() adapter.HandlerBuilder { return builder{} },
 		DefaultConfig:        &config.Params{},
-		ValidateConfig:       func(msg proto.Message) *adapter.ConfigErrors { return nil },
+		ValidateConfig:       func(adapter.Config) *adapter.ConfigErrors { return nil },
 	}
 }
