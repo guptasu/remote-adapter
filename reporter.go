@@ -21,7 +21,7 @@ type (
 var _ logentry.HandlerBuilder = builder{}
 var _ logentry.Handler = handler{}
 
-func (builder) Build(m proto.Message, env adapter.Env) (adapter.Handler, error) {
+func (builder) Build(c adapter.Config, env adapter.Env) (adapter.Handler, error) {
 	return handler{env.Logger()}, nil
 }
 
