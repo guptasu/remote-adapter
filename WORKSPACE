@@ -1,4 +1,4 @@
-workspace(name = "com_github_douglasreid_mixer_noop_reporter")
+workspace(name = "com_github_guptasu_remote_adapter")
 
 git_repository(
     name = "io_bazel_rules_go",
@@ -15,17 +15,6 @@ go_repository(
    commit = "3e91418c34d4bf92819b06ffcec23d7bcddb889b",
    importpath = "istio.io/mixer",
 )
-
-# local_repository(
-#    name = "com_github_istio_mixer",
-#    path = "/Users/dougreid/go/src/istio.io/mixer",
-# )
-
-# local_repository(
-#    name = "com_github_guptasu_report",
-#    path = "/Users/dougreid/go/src/github.com/guptasu/remoteRpt",
-# )
-
 load("@com_github_istio_mixer//:adapter_author_deps.bzl", "mixer_adapter_repositories")
 
 load("@com_github_istio_mixer//:istio_api.bzl", "go_istio_api_repositories")
@@ -47,6 +36,14 @@ go_repository(
     commit = "35136c09d8da66b901337c6e86fd8e88a1a255bd",  # Jan 30, 2017 (no releases)
     importpath = "github.com/spf13/cobra",
 )
+
+
+go_repository(
+    name = "com_github_guptasu_remoteTemplate",
+    commit = "33725d84580eece93300f2ae80dfaf234fba6527",
+    importpath = "github.com/guptasu/remote-template",
+)
+
 
 go_repository(
     name = "com_github_spf13_pflag",
@@ -77,5 +74,3 @@ go_repository(
     commit = "7554cd9344cec97297fa6649b055a8c98c2a1e55",  # Oct 27, 2014 (no releases)
     importpath = "github.com/hashicorp/errwrap",
 )
-
-

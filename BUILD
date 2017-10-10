@@ -4,7 +4,7 @@ licenses(["notice"])
 
 load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_prefix")
 
-go_prefix("github.com/douglas-reid/mixer-noop-reporter")
+go_prefix("github.com/guptasu/remoteAdapter")
 
 go_library(
     name = "go_default_library",
@@ -16,6 +16,8 @@ go_library(
         "@io_istio_api//:mixer/v1",  # keep
         "@io_istio_api//:mixer/v1/config/descriptor",  # keep        
         "@com_github_istio_mixer//pkg/adapter:go_default_library",
-        "@com_github_istio_mixer//template/logentry:go_default_library",
+
+        "@com_github_istio_mixer//template/logentry:go_default_library", # use built in template
+        "@com_github_guptasu_remoteTemplate//:go_default_library", # use remote template
     ],
 )
