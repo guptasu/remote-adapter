@@ -11,10 +11,20 @@ load("@io_bazel_rules_go//go:def.bzl", "go_repositories", "go_repository")
 go_repositories()
 
 go_repository(
-    name = "com_github_istio_mixer",
-    commit = "bb397adeb8560516121493174136263c600ef6d2",
-    importpath = "istio.io/mixer",
+   name = "com_github_istio_mixer",
+   commit = "3e91418c34d4bf92819b06ffcec23d7bcddb889b",
+   importpath = "istio.io/mixer",
 )
+
+# local_repository(
+#    name = "com_github_istio_mixer",
+#    path = "/Users/dougreid/go/src/istio.io/mixer",
+# )
+
+# local_repository(
+#    name = "com_github_guptasu_report",
+#    path = "/Users/dougreid/go/src/github.com/guptasu/remoteRpt",
+# )
 
 load("@com_github_istio_mixer//:adapter_author_deps.bzl", "mixer_adapter_repositories")
 
@@ -50,5 +60,22 @@ go_repository(
     importpath = "github.com/inconshreveable/mousetrap",
 )
 
+go_repository(
+    name = "org_golang_google_genproto",
+    commit = "aa2eb687b4d3e17154372564ad8d6bf11c3cf21f",  # June 1, 2017 (no releases)
+    importpath = "google.golang.org/genproto",
+)
+
+go_repository(
+    name = "com_github_hashicorp_go_multierror",
+    commit = "ed905158d87462226a13fe39ddf685ea65f1c11f",  # Dec 16, 2016 (no releases)
+    importpath = "github.com/hashicorp/go-multierror",
+)
+
+go_repository(
+    name = "com_github_hashicorp_errwrap",
+    commit = "7554cd9344cec97297fa6649b055a8c98c2a1e55",  # Oct 27, 2014 (no releases)
+    importpath = "github.com/hashicorp/errwrap",
+)
 
 
