@@ -12,6 +12,7 @@ gogoslick_proto_library(
         "../../external/com_google_protobuf/src",
         "external/com_google_protobuf/src",
         "../../external/com_github_googleapis_googleapis/",
+        "external/com_github_gogo_protobuf",
     ],
     inputs = [
         "@com_google_protobuf//:well_known_protos",
@@ -26,5 +27,6 @@ gogoslick_proto_library(
     deps = [
         "@com_github_golang_protobuf//proto:go_default_library",
         "@com_github_googleapis_googleapis//:google/rpc",
+        "@com_github_gogo_protobuf//gogoproto:go_default_library",
     ],
 )
