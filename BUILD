@@ -21,3 +21,23 @@ go_library(
         "@com_github_guptasu_remoteTemplate//:go_default_library", # use remote template
     ],
 )
+
+load("@io_bazel_rules_go//go:def.bzl", "go_test")
+go_test(
+    name = "go_default_test",
+    size = "small",
+    srcs = ["reporter_test.go"],
+    library = ":go_default_library",
+    data = [
+        "sampleoperatorconfig",
+    ],
+    deps = [
+        "//testmixersupportedtmpls:go_default_library",
+        "@com_github_istio_mixer//pkg/adapter:go_default_library",
+        "@com_github_istio_mixer//pkg/template:go_default_library",
+        "@com_github_istio_mixer//test/testenv:go_default_library",
+        "@com_github_istio_mixer//template:go_default_library",
+        "@io_istio_api//:mixer/v1",  # keep
+        "@org_golang_x_net//context:go_default_library",
+    ],
+)
